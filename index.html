@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- PICO CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="css/main.css">
+    <title>Clase 04 | Arrays/Objetos</title>
+</head>
+<body>
+
+
+<div id="contenedor1">
+
+    <button id="BtnMonedasDisponibles">
+        ver tabla de conversiones
+    </button>
+</div>
+
+
+    <!-- FORMULARIO DE CONVERSION -->
+
+<form>
+
+    <div class="formulario">
+
+        <div>
+
+            <label>
+                <select id="campo" class="moneda1" required>
+                    <option value="" selected>Moneda Origen</option>
+                </select>
+            </label>
+
+            <label id="cmapo">
+                monto en <span>MONEDA</span>
+                <input type="text" autocomplete="off" id="montoAIngresar" class="campo" name="lastname" placeholder="Usted ingresa" required>
+            </label>
+
+        </div>
+
+        <div>
+
+            <label>
+                <select id="campo" class="moneda2" required>
+                    <option value="" selected>Moneda Destino</option>
+                </select>
+            </label>
+
+            <label id="cmapo">
+                monto en <span>MONEDA</span>
+                <input type="text" readonly id="montoAEntregar" class="campo" name="lastname" placeholder="Usted recibe" required>
+            </label>
+
+        </div>
+
+    </div>
+
+</form>
+
+<div id="contenedor2">
+
+    <button id="BtnSubmit" type="button">
+        Convertir
+    </button>
+
+</div>
+
+
+
+<div id="ultimaConversion">
+
+    <div class="container">
+        <h1 class="titulo">Ultimas Conversiones</h1>
+    </div>
+    <table id="fila2">
+        <thead>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">Moneda Origen</th>
+                <th scope="col">Moneda Destino</th>
+                <th scope="col">Monto Ingreso</th>
+                <th scope="col">Monto Egreso</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr></tr>
+            <tr></tr>
+            <tr></tr>
+        </tbody>
+        <tfoot>
+            <tr></tr>
+        </tfoot>
+    </table>
+
+</div>
+
+
+
+    <!-- TARJETA DE CLIMA -->
+    <div class="clima">
+        
+    </div>
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./js/moment.js"></script>
+    <script src="js/variables.js"></script>
+    <script src="js/pais.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
