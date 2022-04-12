@@ -219,47 +219,68 @@ const conversor = ()=> {
 //CONVERTIR AL HACER CLICK
 const convertir = document.getElementById("BtnSubmit")
 convertir.addEventListener("click", () => {
-    conversor()
+console.log(montoIngresado)
 
-    
-        //CREAMOS OBJETOS CON LOS DATOS DE LA ULTIMA CONVERSION
-        let ultimaConversion = {
-            desde: monedaIngresa.value,
-            hasta: monedaEntrega.value,
-            entrega: montoEntrega.value,
-            ingreso: monto.value,
-        }
-    
-        //AGREGAMOS LA ULTIMA CONVERSION AL ARRAY
-        arrUltimasConversiones.push(ultimaConversion)
+    if ((4 >= monedaIngreso >= 1) & (4 >= monedaEgreso >=1) & ((montoIngresado != undefined) & (montoIngresado != ""))){
+        conversor()
 
-        //GUARDAMOS EN LOCAL STORAGE EL ARRAY NUEVO (SUMANDO ULTIMA CONVERSION)
-        localStorage.setItem("conversiones", JSON.stringify(arrUltimasConversiones))
+        
+            //CREAMOS OBJETOS CON LOS DATOS DE LA ULTIMA CONVERSION
+            let ultimaConversion = {
+                desde: monedaIngresa.value,
+                hasta: monedaEntrega.value,
+                entrega: montoEntrega.value,
+                ingreso: monto.value,
+            }
+        
+            //AGREGAMOS LA ULTIMA CONVERSION AL ARRAY
+            arrUltimasConversiones.push(ultimaConversion)
 
-        //CREAMOS UNA NUEVA FILA EN EL DOM PARA MOSTRAR LA ULTIMA CONVERSION
-        nuevaFila(ultimaConversion)
+            //GUARDAMOS EN LOCAL STORAGE EL ARRAY NUEVO (SUMANDO ULTIMA CONVERSION)
+            localStorage.setItem("conversiones", JSON.stringify(arrUltimasConversiones))
 
-        //CREAMOS UNA VARIABLE CON LA HORA ACTUAL
-        let hora = moment().format('MMMM Do YYYY, h:mm:ss a');
+            //CREAMOS UNA NUEVA FILA EN EL DOM PARA MOSTRAR LA ULTIMA CONVERSION
+            nuevaFila(ultimaConversion)
+
+            //CREAMOS UNA VARIABLE CON LA HORA ACTUAL
+            let hora = moment().format('MMMM Do YYYY, h:mm:ss a');
 
 
-    //SWEET ALERT + MOMENT JS
-    const Toast = Swal.mixin({
-        toast: true,
-        position: 'center',
-        width: '25rem',
-        showConfirmButton: false,
-        timer: 1500,
-        timerProgressBar: true,
-        didOpen: (toast) => {
-          toast.addEventListener('mouseenter', Swal.stopTimer)
-          toast.addEventListener('mouseleave', Swal.resumeTimer)
-        }
-      })
-      
-      Toast.fire({
-        icon: 'success',
-        title: 'Ultima conversion guardada a las:',
-        html: `${hora}`
-      })
+        //SWEET ALERT + MOMENT JS
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'center',
+            width: '25rem',
+            showConfirmButton: false,
+            timer: 1500,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+        })
+        Toast.fire({
+            icon: 'success',
+            title: 'Ultima conversion guardada a las:',
+            html: `${hora}`
+        })}
+    else {
+         //SWEET ALERT + MOMENT JS
+            const Toast = Swal.mixin({
+            toast: true,
+            position: 'center',
+            width: '25rem',
+            showConfirmButton: false,
+            timer: 1500,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+        })
+        Toast.fire({
+            icon: 'error',
+            title: 'Falló la conversion',
+            html: ``
+        })}
 })
