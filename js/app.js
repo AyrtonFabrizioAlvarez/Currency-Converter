@@ -33,7 +33,7 @@ const armarTarjeta = async (objeto) => {
     <div class="box_1">
         
         <h4 class="feels_like"><span>Térmica</span> ${Number(objeto.feels_like).toFixed(0)}</h4>
-        <h4 class="humidity"><span>Humedad</span> ${objeto.humidity}</h4>
+        <h4 class="humidity"><span>Humedad</span> ${objeto.humidity} %</h4>
     </div>
     
     <div class="box_2">
@@ -313,6 +313,7 @@ modoOscuro.onclick = () => {
                 document.querySelector(".fa-moon").classList.toggle("desaparecer")
                 document.querySelector(".fa-moon").classList.toggle("theme-icon-white")
                 document.querySelector(".fa-sun").classList.toggle("desaparecer")
+                document.querySelector(".clima").classList.toggle("black")
             }
             else {
                 principal.setAttribute('data-theme', 'dark');
@@ -321,6 +322,7 @@ modoOscuro.onclick = () => {
                 document.querySelector(".fa-sun").classList.toggle("desaparecer")
                 document.querySelector(".fa-sun").classList.toggle("theme-icon-black")
                 document.querySelector(".fa-moon").classList.toggle("desaparecer")
+                document.querySelector(".clima").classList.toggle("black")
 
             }
     }
