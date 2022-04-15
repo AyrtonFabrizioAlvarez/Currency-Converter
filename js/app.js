@@ -283,3 +283,18 @@ convertir.addEventListener("click", () => {
 
         monto.value = "";
 })
+
+
+// DARK/LIGHT MODE
+
+let modoOscuro = document.getElementById("checkbox")
+modoOscuro.onclick = () => {
+            const principal = document.querySelector(".principal")
+            let temaActual = principal.getAttribute('data-theme');
+            if ( temaActual == 'dark')
+                principal.setAttribute('data-theme', 'light');
+            else {
+                principal.setAttribute('data-theme', 'dark');
+            }
+
+    }

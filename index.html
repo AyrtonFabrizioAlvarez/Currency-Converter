@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,6 +19,15 @@
 </head>
 <body>
 
+<article  class="principal" data-theme="dark">
+                
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox" />
+            <div class="slider round"></div>
+        </label>
+    </div>
+
 
     <!-- TARJETA DE CLIMA -->
     <div class="clima">
@@ -26,91 +35,89 @@
     </div>
 
 
-    <!-- FORMULARIO DE CONVERSION -->
+        <!-- FORMULARIO DE CONVERSION -->
 
-<form>
+    <form>
 
-    <div class="formulario">
+        <div class="formulario">
 
-        <div class="formulario1">
+            <div class="formulario1">
 
-            <label>
-                <select id="campo" class="moneda1" required>
-                    <option value="" selected>Moneda Origen</option>
-                </select>
-            </label>
+                <label>
+                    <select id="campo" class="moneda1" required>
+                        <option value="" selected>Moneda Origen</option>
+                    </select>
+                </label>
 
-            <label>
-                Monto en <span class="ISO-ingresa"></span>
-                <input type="text" autocomplete="off" id="montoAIngresar" class="campo" name="lastname" placeholder="Usted ingresa" required>
-            </label>
+                <label>
+                    Monto en <span class="ISO-ingresa"></span>
+                    <input type="text" autocomplete="off" id="montoAIngresar" class="campo" name="lastname" placeholder="Usted ingresa" required>
+                </label>
+
+            </div>
+
+            <div class="formulario2">
+
+                <label>
+                    <select id="campo" class="moneda2" required>
+                        <option value="" selected>Moneda Destino</option>
+                    </select>
+                </label>
+
+                <label>
+                    Monto en <span class="ISO-entrega"></span>
+                    <input type="text" readonly id="montoAEntregar" class="campo" name="lastname" placeholder="Usted recibe" required>
+                </label>
+
+            </div>
 
         </div>
 
-        <div class="formulario2">
+    </form>
 
-            <label>
-                <select id="campo" class="moneda2" required>
-                    <option value="" selected>Moneda Destino</option>
-                </select>
-            </label>
+    <div id="contenedor2">
 
-            <label>
-                Monto en <span class="ISO-entrega"></span>
-                <input type="text" readonly id="montoAEntregar" class="campo" name="lastname" placeholder="Usted recibe" required>
-            </label>
+        <button id="BtnSubmit" type="button">
+            Convertir
+        </button>
 
+    </div>
+
+
+
+    <div id="ultimaConversion">
+
+        <div class="container">
+            <h1 class="titulo">Ultimas Conversiones</h1>
         </div>
+        <table id="fila2">
+            <thead>
+                <tr>
+                    <th scope="col">Origen</th>
+                    <th scope="col">Destino</th>
+                    <th scope="col">Ingreso</th>
+                    <th scope="col">Egreso</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+            </tbody>
+            <tfoot>
+                <tr></tr>
+            </tfoot>
+        </table>
 
     </div>
 
-</form>
+    <footer class="footer">
 
-<div id="contenedor2">
+        
 
-    <button id="BtnSubmit" type="button">
-        Convertir
-    </button>
+    </footer>
 
-</div>
-
-
-
-<div id="ultimaConversion">
-
-    <div class="container">
-        <h1 class="titulo">Ultimas Conversiones</h1>
-    </div>
-    <table id="fila2">
-        <thead>
-            <tr>
-                <th scope="col">Origen</th>
-                <th scope="col">Destino</th>
-                <th scope="col">Ingreso</th>
-                <th scope="col">Egreso</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr></tr>
-            <tr></tr>
-            <tr></tr>
-        </tbody>
-        <tfoot>
-            <tr></tr>
-        </tfoot>
-    </table>
-
-</div>
-
-<footer class="footer">
-
-    
-
-</footer>
-
-
-
- 
+</article>
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="./js/moment.js"></script>
