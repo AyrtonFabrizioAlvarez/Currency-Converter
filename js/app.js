@@ -7,7 +7,6 @@ const getWeather = async () => {
     try {
         const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${LAT}&lon=${LON}&units=metric&appid=${API_KEY}`)
         const data = await response.json()
-        console.log(data)
         return {
             feels_like: data.main?.feels_like,
             humidity: data.main?.humidity,
@@ -130,7 +129,6 @@ let arrUltimasConversiones =  JSON.parse(localStorage.getItem("conversiones")) |
 //CREAMOS UNA NUEVA FILA EN EL HTML CON LA ULTIMA CONVERSION
 const nuevaFila = (element) => {
     document.getElementById("fila2").insertRow(-1).innerHTML = `
-            <th> </th>
             <td> ${element.desde} </td>
             <td> ${element.hasta} </td>
             <td> ${element.ingreso} </td>
@@ -219,7 +217,6 @@ const conversor = ()=> {
 //CONVERTIR AL HACER CLICK
 const convertir = document.getElementById("BtnSubmit")
 convertir.addEventListener("click", () => {
-console.log(montoIngresado)
 
     if ((4 >= monedaIngreso >= 1) & (4 >= monedaEgreso >=1) & ((montoIngresado != undefined) & (montoIngresado != ""))){
         conversor()
@@ -283,4 +280,6 @@ console.log(montoIngresado)
             title: 'Falló la conversion',
             html: ``
         })}
+
+        monto.value = "";
 })

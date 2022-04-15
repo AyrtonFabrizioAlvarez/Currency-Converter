@@ -1,26 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,500;1,500&family=Roboto:ital,wght@0,400;0,500;0,900;1,300;1,400;1,500;1,900&display=swap" rel="stylesheet">
 
     <!-- PICO CSS -->
     <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
 
     <!-- MAIN CSS -->
     <link rel="stylesheet" href="css/main.css">
-    <title>Clase 04 | Arrays/Objetos</title>
+    <title>Currency Converter</title>
 </head>
 <body>
 
 
-<div id="contenedor1">
-
-    <button id="BtnMonedasDisponibles">
-        ver tabla de conversiones
-    </button>
-</div>
+    <!-- TARJETA DE CLIMA -->
+    <div class="clima">
+        
+    </div>
 
 
     <!-- FORMULARIO DE CONVERSION -->
@@ -29,7 +32,7 @@
 
     <div class="formulario">
 
-        <div>
+        <div class="formulario1">
 
             <label>
                 <select id="campo" class="moneda1" required>
@@ -37,14 +40,14 @@
                 </select>
             </label>
 
-            <label id="cmapo">
-                monto en <span>MONEDA</span>
+            <label>
+                Monto en <span class="ISO-ingresa"></span>
                 <input type="text" autocomplete="off" id="montoAIngresar" class="campo" name="lastname" placeholder="Usted ingresa" required>
             </label>
 
         </div>
 
-        <div>
+        <div class="formulario2">
 
             <label>
                 <select id="campo" class="moneda2" required>
@@ -52,8 +55,8 @@
                 </select>
             </label>
 
-            <label id="cmapo">
-                monto en <span>MONEDA</span>
+            <label>
+                Monto en <span class="ISO-entrega"></span>
                 <input type="text" readonly id="montoAEntregar" class="campo" name="lastname" placeholder="Usted recibe" required>
             </label>
 
@@ -81,11 +84,10 @@
     <table id="fila2">
         <thead>
             <tr>
-                <th scope="col"></th>
-                <th scope="col">Moneda Origen</th>
-                <th scope="col">Moneda Destino</th>
-                <th scope="col">Monto Ingreso</th>
-                <th scope="col">Monto Egreso</th>
+                <th scope="col">Origen</th>
+                <th scope="col">Destino</th>
+                <th scope="col">Ingreso</th>
+                <th scope="col">Egreso</th>
             </tr>
         </thead>
         <tbody>
@@ -100,12 +102,15 @@
 
 </div>
 
+<footer class="footer">
+
+    
+
+</footer>
 
 
-    <!-- TARJETA DE CLIMA -->
-    <div class="clima">
-        
-    </div>
+
+ 
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="./js/moment.js"></script>
