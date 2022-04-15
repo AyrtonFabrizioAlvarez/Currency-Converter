@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- FAVICON -->
+    <script defer src="https://kit.fontawesome.com/07daed3936.js" crossorigin="anonymous"></script>
     <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,6 +15,9 @@
     <!-- PICO CSS -->
     <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
 
+    <!-- SWEET ALERT -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@5/dark.css">
+    <link rel="stylesheet" href="@sweetalert2/themes/dark/dark.css">
     <!-- MAIN CSS -->
     <link rel="stylesheet" href="css/main.css">
     <title>Currency Converter</title>
@@ -99,7 +104,7 @@
                     <th scope="col">Egreso</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="tabla">
                 <tr></tr>
                 <tr></tr>
                 <tr></tr>
@@ -111,6 +116,13 @@
 
     </div>
 
+
+    <div class="trash">
+        <i class="fa-solid fa-trash-can"></i>
+    </div>
+
+
+
     <footer class="footer">
 
         
@@ -119,6 +131,8 @@
 
 </article>
 
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+    <script src="sweetalert2/dist/sweetalert2.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="./js/moment.js"></script>
     <script src="js/variables.js"></script>

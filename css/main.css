@@ -132,6 +132,7 @@ form {
 
 th {
     padding: .375rem;
+    text-align: center;
 }
 
 td {
@@ -200,3 +201,21 @@ td {
 .footer {
     margin-top: 3rem;
 }
+
+
+
+.trash {
+    display: flex;
+    justify-content: center;
+}
+.fa-solid {
+    font-size: 3.5rem;
+}
+.trash-black {
+    font-size: 3.5rem;
+    color: #3c3c3c;
+}
+.trash-white {
+    font-size: 3.5rem;
+    color: #dddddd;
+} 

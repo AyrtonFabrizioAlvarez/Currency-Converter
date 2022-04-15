@@ -128,7 +128,7 @@ let arrUltimasConversiones =  JSON.parse(localStorage.getItem("conversiones")) |
 
 //CREAMOS UNA NUEVA FILA EN EL HTML CON LA ULTIMA CONVERSION
 const nuevaFila = (element) => {
-    document.getElementById("fila2").insertRow(-1).innerHTML = `
+    document.getElementById("tabla").insertRow(-1).innerHTML = `
             <td> ${element.desde} </td>
             <td> ${element.hasta} </td>
             <td> ${element.ingreso} </td>
@@ -168,7 +168,7 @@ const conversor = ()=> {
             //ARS
             case 1:
                 const cambio = {
-                    1 :   1,
+                    1 :   montoIngresado,
                     2 :   argentina.obtenerCambioADolar(montoIngresado),
                     3 :   argentina.obtenerCambioAEuros(montoIngresado),
                     4 :   argentina.obtenerCambioAReal(montoIngresado),
@@ -180,7 +180,7 @@ const conversor = ()=> {
             case 2:
                 const cambio2 = {
                     1 :   estadosUnidos.obtenerCambioAPesosArgentinos(montoIngresado),
-                    2 :   1,
+                    2 :   montoIngresado,
                     3 :   estadosUnidos.obtenerCambioAEuros(montoIngresado),
                     4 :   estadosUnidos.obtenerCambioAReal(montoIngresado),
                 }
@@ -192,7 +192,7 @@ const conversor = ()=> {
                 const cambio3 = {
                     1 :   europa.obtenerCambioAPesosArgentinos(montoIngresado),
                     2 :   europa.obtenerCambioADolar(montoIngresado),
-                    3 :   1,
+                    3 :   montoIngresado,
                     4 :   europa.obtenerCambioAReal(montoIngresado),
                 }
                 montoEntrega.value = cambio3[monedaEgreso]
@@ -205,7 +205,7 @@ const conversor = ()=> {
                     1 :   brasil.obtenerCambioAPesosArgentinos(montoIngresado),
                     2 :   brasil.obtenerCambioADolar(montoIngresado),
                     3 :   brasil.obtenerCambioAEuros(montoIngresado),
-                    4 :   1,
+                    4 :   montoIngresado,
                 }
                 montoEntrega.value = cambio4[monedaEgreso]
                 break;
@@ -218,32 +218,46 @@ const conversor = ()=> {
 const convertir = document.getElementById("BtnSubmit")
 convertir.addEventListener("click", () => {
 
-    if ((4 >= monedaIngreso >= 1) & (4 >= monedaEgreso >=1) & ((montoIngresado != undefined) & (montoIngresado != ""))){
+    // ARMAMOS STRING PARA VERIFICAR QUE NO SE INTRODUZCAN CARACTERES QUE NO SEAN NUMEROS
+    let Input = monto.value
+    let arrInput = Input.split("")
+    let puedeConvertir
+    for (let i = 0 ; i < arrInput.length ; i++) {
+            if ((arrInput[i] == 0) || (arrInput[i] == 1) || (arrInput[i] == 2) || (arrInput[i] == 3) || (arrInput[i] == 4) || (arrInput[i] == 5) || (arrInput[i] == 6) || (arrInput[i] == 7) || (arrInput[i] == 8) || (arrInput[i] == 9)) {
+                puedeConvertir = true;
+            } else  {
+                puedeConvertir = false;
+                break
+            }
+    }
+    console.log(puedeConvertir)
+
+    if ((4 >= monedaIngreso >= 1) & (4 >= monedaEgreso >=1) & (puedeConvertir)) {
+
         conversor()
 
         
-            //CREAMOS OBJETOS CON LOS DATOS DE LA ULTIMA CONVERSION
-            let ultimaConversion = {
-                desde: monedaIngresa.value,
-                hasta: monedaEntrega.value,
-                entrega: montoEntrega.value,
-                ingreso: monto.value,
-            }
-        
-            //AGREGAMOS LA ULTIMA CONVERSION AL ARRAY
-            arrUltimasConversiones.push(ultimaConversion)
+        //CREAMOS OBJETOS CON LOS DATOS DE LA ULTIMA CONVERSION
+        let ultimaConversion = {
+            desde: monedaIngresa.value,
+            hasta: monedaEntrega.value,
+            entrega: montoEntrega.value,
+            ingreso: monto.value,
+        }
+    
+        //AGREGAMOS LA ULTIMA CONVERSION AL ARRAY
+        arrUltimasConversiones.push(ultimaConversion)
 
-            //GUARDAMOS EN LOCAL STORAGE EL ARRAY NUEVO (SUMANDO ULTIMA CONVERSION)
-            localStorage.setItem("conversiones", JSON.stringify(arrUltimasConversiones))
+        //GUARDAMOS EN LOCAL STORAGE EL ARRAY NUEVO (SUMANDO ULTIMA CONVERSION)
+        localStorage.setItem("conversiones", JSON.stringify(arrUltimasConversiones))
 
-            //CREAMOS UNA NUEVA FILA EN EL DOM PARA MOSTRAR LA ULTIMA CONVERSION
-            nuevaFila(ultimaConversion)
+        //CREAMOS UNA NUEVA FILA EN EL DOM PARA MOSTRAR LA ULTIMA CONVERSION
+        nuevaFila(ultimaConversion)
 
-            //CREAMOS UNA VARIABLE CON LA HORA ACTUAL
-            let hora = moment().format('MMMM Do YYYY, h:mm:ss a');
+        //CREAMOS UNA VARIABLE CON LA HORA ACTUAL
+        let hora = moment().format('MMMM Do YYYY, h:mm:ss a');
 
 
-        //SWEET ALERT + MOMENT JS
         const Toast = Swal.mixin({
             toast: true,
             position: 'center',
@@ -260,10 +274,11 @@ convertir.addEventListener("click", () => {
             icon: 'success',
             title: 'Ultima conversion guardada a las:',
             html: `${hora}`
-        })}
+        })
+    }
+
     else {
-         //SWEET ALERT + MOMENT JS
-            const Toast = Swal.mixin({
+        const Toast = Swal.mixin({
             toast: true,
             position: 'center',
             width: '25rem',
@@ -278,11 +293,11 @@ convertir.addEventListener("click", () => {
         Toast.fire({
             icon: 'error',
             title: 'Falló la conversion',
-            html: ``
-        })}
-
-        monto.value = "";
+            text: "Ingrese un caracter válido ('0, 1, 2, 3, 4, 5, 6, 7, 8, 9')"
+        })
+    }
 })
+
 
 
 // DARK/LIGHT MODE
@@ -291,10 +306,20 @@ let modoOscuro = document.getElementById("checkbox")
 modoOscuro.onclick = () => {
             const principal = document.querySelector(".principal")
             let temaActual = principal.getAttribute('data-theme');
-            if ( temaActual == 'dark')
+            if ( temaActual == 'dark') {
                 principal.setAttribute('data-theme', 'light');
+                document.querySelector(".fa-solid").classList.toggle("trash-black");
+            }
             else {
                 principal.setAttribute('data-theme', 'dark');
+                document.querySelector(".fa-solid").classList.toggle("trash-black");
             }
-
     }
+
+
+let trash = document.querySelector(".fa-solid")
+let limpiarTabla = document.getElementById("tabla")
+trash.onclick = () => {
+    localStorage.clear()
+    limpiarTabla.innerHTML = ` `
+}
