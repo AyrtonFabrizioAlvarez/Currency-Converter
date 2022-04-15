@@ -32,14 +32,14 @@ const armarTarjeta = async (objeto) => {
     </div>
     <div class="box_1">
         
-        <h4 class="feels_like"><span>Térmica</span> ${Number(objeto.feels_like).toFixed(0)}</h4>
+        <h4 class="feels_like"><span>Térmica</span> ${Number(objeto.feels_like).toFixed(0)}º</h4>
         <h4 class="humidity"><span>Humedad</span> ${objeto.humidity} %</h4>
     </div>
     
     <div class="box_2">
-        <h4 class="temp"><span>Temperatura</span> ${objeto.temp}</h4>
-        <h4 class="temp_max"><span>Máxima</span> ${objeto.temp_max}</h4>
-        <h4 class="temp_min"><span>Mínima</span> ${objeto.temp_min}</h4>
+        <h4 class="temp"><span>Temperatura</span> ${objeto.temp}º</h4>
+        <h4 class="temp_max"><span>Máxima</span> ${objeto.temp_max}º</h4>
+        <h4 class="temp_min"><span>Mínima</span> ${objeto.temp_min}º</h4>
     </div>
     `
 }
