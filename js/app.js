@@ -33,7 +33,7 @@ const armarTarjeta = async (objeto) => {
     <div class="box_1">
         
         <h4 class="feels_like"><span>Térmica</span> ${Number(objeto.feels_like).toFixed(0)}º</h4>
-        <h4 class="humidity"><span>Humedad</span> ${objeto.humidity} %</h4>
+        <h4 class="humidity"><span>Humedad</span> ${objeto.humidity}%</h4>
     </div>
     
     <div class="box_2">
