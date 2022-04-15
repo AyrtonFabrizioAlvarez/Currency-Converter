@@ -11,6 +11,24 @@ body {
 
     /* TOGGLE SWITCH DAR/LIGHT MODE */
 
+.fa-regular {
+    color: #dddddd;
+    font-size: 1.2rem;
+}
+.theme-icon {
+    margin-right: .5rem;
+}
+.theme-icon-white {
+    color: #dddddd;
+}
+.theme-icon-black {
+    color: #3c3c3c;
+}
+.desaparecer {
+    position: absolute;
+    display: none;
+}
+
 .theme-switch-wrapper {
     justify-content: flex-end;
     margin-top: .8rem;

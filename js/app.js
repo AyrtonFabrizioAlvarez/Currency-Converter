@@ -309,10 +309,19 @@ modoOscuro.onclick = () => {
             if ( temaActual == 'dark') {
                 principal.setAttribute('data-theme', 'light');
                 document.querySelector(".fa-solid").classList.toggle("trash-black");
+                document.querySelector(".fa-sun").classList.toggle("theme-icon-black")
+                document.querySelector(".fa-moon").classList.toggle("desaparecer")
+                document.querySelector(".fa-moon").classList.toggle("theme-icon-white")
+                document.querySelector(".fa-sun").classList.toggle("desaparecer")
             }
             else {
                 principal.setAttribute('data-theme', 'dark');
                 document.querySelector(".fa-solid").classList.toggle("trash-black");
+                document.querySelector(".fa-moon").classList.toggle("theme-icon-white")
+                document.querySelector(".fa-sun").classList.toggle("desaparecer")
+                document.querySelector(".fa-sun").classList.toggle("theme-icon-black")
+                document.querySelector(".fa-moon").classList.toggle("desaparecer")
+
             }
     }
 
