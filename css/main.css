@@ -9,6 +9,10 @@ body {
     flex-direction: column;
 }
 
+.principal {
+    margin: 0;
+}
+
     /* TOGGLE SWITCH DAR/LIGHT MODE */
 
 .fa-regular {
@@ -131,7 +135,7 @@ form {
 }
 
 #ultimaConversion {
-    margin-top: 4rem;
+    margin-top: 6rem;
 }
 
 
@@ -216,9 +220,7 @@ td {
     color:#6c6c6c;
 }
 
-.footer {
-    margin-top: 3rem;
-}
+
 
 
 
@@ -228,6 +230,8 @@ td {
 }
 .fa-solid {
     font-size: 3.5rem;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
 }
 .trash-black {
     font-size: 3.5rem;
@@ -237,3 +241,29 @@ td {
     font-size: 3.5rem;
     color: #dddddd;
 } 
+
+@media (min-width:1024px) {
+    .clima {
+        width: 70%;
+        margin-left: 2.7rem;
+        margin-top: 0;
+        position: relative;
+        top: -38px;
+    }
+
+    .formulario {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        width: 100%;
+    }
+
+    .formulario1 {
+        width: 45%;
+    }
+
+    .formulario2 {
+        width: 45%;
+        margin-top: 0;
+    }
+}

@@ -76,7 +76,7 @@ LOCALIZACION()
 
 //CREANDO NUEVOS OBJETOS
 const argentina = new Pais(1,"Argentina","peso argentino", "ARS", 1, 0.0092, 0.0084, 0.047);
-const estadosUnidos = new Pais(2,"Estados unidos","dolar estado unidense", "USD", 203, 1, 0.91, 5.06);
+const estadosUnidos = new Pais(2,"Estados unidos","dolar estado unidense", "USD", 200, 1, 0.91, 5.06);
 const europa = new Pais(3,"Europa", "euro", "EU", 245, 1.09, 1, 5.53);
 const brasil = new Pais(4,"Brasil", "reales", "BRL", 21.47, 0.20, 0.18, 1);
 
