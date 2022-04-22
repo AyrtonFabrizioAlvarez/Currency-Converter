@@ -2,7 +2,7 @@ const API_KEY = "055428f3c41197681c196442e17b916a"
 let LAT = "";
 let LON = "";
 let clima = {};
-
+// PRUEBAAAAA
 const getWeather = async () => {
     try {
         const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${LAT}&lon=${LON}&units=metric&appid=${API_KEY}`)
